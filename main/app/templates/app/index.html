@@ -1,0 +1,91 @@
+{% extends 'app/layout.html' %}
+{% load static %}
+
+
+{%block content%}
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+	integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<!-- images -->
+<style>
+	#i1 {
+		background-image:url("{% static 'images/home_slider.jpg' %}")
+	}
+</style>
+<div class="home">
+
+	<!-- Home Slider -->
+	<div class="home_slider_container">
+		<div class="owl-carousel owl-theme home_slider">
+
+			<!-- Slide -->
+			<div class="owl-item" id="i1">
+				<div class="background_image" id="i1"></div>
+				<div class="home_slider_content_container">
+					<div class="container">
+						<div class="row">
+							<div class="col">
+								<div class="home_slider_content">
+									<div class="home_title">
+										<h2>Plan Your Trip With Us</h2>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+		</div>
+	</div>
+</div>
+
+<!-- Search -->
+
+<div class="home_search">
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div class="home_search_container">
+					<div class="home_search_title">Search for your trip</div>
+					<div class="home_search_content">
+						<form method="POST" action="{% url 'home' %}" class="home_search_form" id="home_search_form">
+							{% csrf_token %}
+							<div
+								class="d-flex flex-lg-row flex-column align-items-start justify-content-lg-between justify-content-start">
+								<select name="travellingWith" class="search_input search_input_1"
+									placeholder="Travelling With" required="required">
+									<option selected disabled>Travelling With</option>
+									<option value="friends">Friends</option>
+									<option value="kids">Kids</option>
+									<option value="family">Family</option>
+									<option value="partner">Partner</option>
+									<option value="senior">Senior</option>
+								</select>
+								<input name="currentLocation" type="text" class="search_input search_input_1"
+									placeholder="Current Location" required="required">
+								<input name="days" type="text" class="search_input search_input_1" placeholder="Days"
+									required="required">
+								<button class="home_search_button">search</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+
+
+
+</div>
+<br>
+
+
+{% endblock %}
